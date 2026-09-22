@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+int a[100500];
+
+int main () {
+    int n;
+    cin >> n;
+    stack<int> st;
+    for (int i=1;i<=n;++i) {
+        cin>>a[i];
+        while(st.size()!=0&&a[st.top()]>=a[i]) {
+            st.pop();
+        }
+        if (st.empty()){
+            cout << -1<< " ";
+        } else {
+            cout << st.top() << " " ;
+        }
+        st.push(a[i]);
+    }
+
+
+    return 0;
+}

@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using ll=long long;
+
+vector<ll> sieve(ll limit) {
+    vector<bool> isPrime(limit+1, true);
+    vector<ll> primes;
+    isPrime[0]=isPrime[1]=false;
+    for (ll i= 2; i*i<=limit;i++) {
+        if (isPrime[i]) {
+            for(ll j=i*i;j<=limit;j+=i) {
+              isPrime[j]=false;
+            }
+        }
+    }
+    for (ll i=2;i<limit ; i++) {
+        if(isPrime[i]) primes.push_back(i);
+    }
+    return primes;
+}
+
+int main () {
+    ll a;
+    cin >> a;
+    ll limit = 8000;
+    vector<ll> pr=sieve(limit);
+    cout << pr[a-1];
+
+
+
+    return 0;
+}
