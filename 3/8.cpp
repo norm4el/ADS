@@ -18,7 +18,7 @@ int main () {
     for (int r=0;r<n;r++) {
         cur_sum+=a[r];
         while(cur_sum>=k) {
-            min_len=min(min_len, right-left+1);
+            min_len=min(min_len, r-left+1);
             cr_sum-=a[left];
             left++;
         }
